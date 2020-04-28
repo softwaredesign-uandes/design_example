@@ -12,8 +12,8 @@ def generate_gradebook_from_file_lines(file_lines):
   students = []
   for line in file_lines[1:]:
     name = line[0]
-    file_average = int(line[-1])
-    grades = map(int, line[1:-1])
+    file_average = float(line[-1])
+    grades = map(float, line[1:-1])
 
     student = Student(grades, file_average, name)
     students.append(student)
