@@ -18,5 +18,11 @@ class TestStudent(unittest.TestCase):
   def test_check_assignment_grades_when_three_float_grades_and_correct_average_returns_true(self):
     self.assertEqual(Student([4.0,4.1,4.2], 4.1, 'a').check_assignment_grades(), True)
   
-  def test_calculate_final_grade_when_three_float_grades_returns_expected_final_grade(self):
+  def test_calculate_final_grade_when_three_float_grades_returns_average(self):
     self.assertAlmostEqual(Student([4.0,4.1,4.2], 4.1, 'a').calculate_final_grade(), 4.1)
+
+  def test_calculate_final_grade_when_all_grades_over_six_returns_seven(self):
+    self.assertAlmostEqual(Student([6.0,6.1,6.2], 7.0, 'a').calculate_final_grade(), 7.0)
+
+  def test_calculate_final_grade_when_one_grade_is_less_than_two_returns_three_point_nine(self):
+    self.assertAlmostEqual(Student([7.0,7.0,1.2], 3.9, 'a').calculate_final_grade(), 3.9)

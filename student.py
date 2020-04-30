@@ -17,7 +17,13 @@ class Student:
     return True
   
   def calculate_final_grade(self):
-    return sum(self.assignment_grades) / len(self.assignment_grades) 
+    average = sum(self.assignment_grades) / len(self.assignment_grades) 
+    if len(filter(lambda g: g >= 6, self.assignment_grades)) == len(self.assignment_grades):
+      return 7.0
+    elif len(filter(lambda g: g <= 2, self.assignment_grades)) >= 1:
+      return min([3.9, average])
+    else:
+      return average
 
   def check_assignment_grades(self):
     def is_close(a, b, rel_tol=1e-09, abs_tol=0.0):
