@@ -17,3 +17,6 @@ class TestStudent(unittest.TestCase):
 
   def test_check_assignment_grades_when_three_float_grades_and_correct_average_returns_true(self):
     self.assertEqual(Student([4.0,4.1,4.2], 4.1, 'a').check_assignment_grades(), True)
+  
+  def test_calculate_final_grade_when_three_float_grades_returns_expected_final_grade(self):
+    self.assertAlmostEqual(Student([4.0,4.1,4.2], 4.1, 'a').calculate_final_grade(), 4.1)

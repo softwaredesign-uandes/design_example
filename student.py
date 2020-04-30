@@ -16,9 +16,11 @@ class Student:
         return False
     return True
   
+  def calculate_final_grade(self):
+    return sum(self.assignment_grades) / len(self.assignment_grades) 
+
   def check_assignment_grades(self):
     def is_close(a, b, rel_tol=1e-09, abs_tol=0.0):
-      return abs(a-b) <= max(rel_tol * max(abs(a), abs(b)), abs_tol)
-    calculated_average = sum(self.assignment_grades) / len(self.assignment_grades) 
+      return abs(a-b) <= max(rel_tol * max(abs(a), abs(b)), abs_tol) 
 
-    return is_close(self.assignment_final_grade, calculated_average) 
+    return is_close(self.assignment_final_grade, self.calculate_final_grade()) 
