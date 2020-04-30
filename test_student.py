@@ -22,7 +22,7 @@ class TestStudent(unittest.TestCase):
     self.assertAlmostEqual(Student([4.0,4.1,4.2], 4.1, 'a').calculate_final_grade(), 4.1)
 
   def test_calculate_final_grade_when_all_grades_over_six_returns_seven(self):
-    self.assertAlmostEqual(Student([6.0,6.1,6.2], 7.0, 'a').calculate_final_grade(), 7.0)
+    self.assertAlmostEqual(Student([6.0,6.1,6.2], 6.5, 'a').calculate_final_grade(), 6.5)
 
   def test_calculate_final_grade_when_one_grade_is_less_than_two_returns_three_point_nine(self):
     self.assertAlmostEqual(Student([7.0,7.0,1.2], 3.9, 'a').calculate_final_grade(), 3.9)

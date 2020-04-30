@@ -19,7 +19,7 @@ class Student:
   def calculate_final_grade(self):
     average = sum(self.assignment_grades) / len(self.assignment_grades) 
     if len(filter(lambda g: g >= 6, self.assignment_grades)) == len(self.assignment_grades):
-      return 7.0
+      return max([6.5, average])
     elif len(filter(lambda g: g <= 2, self.assignment_grades)) >= 1:
       return min([3.9, average])
     else:
