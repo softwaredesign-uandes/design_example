@@ -1,3 +1,5 @@
+from final_grade_strategy_factory import FinalGradeStrategyFactory
+
 class Student:
   def __init__(self, assignment_grades, assignment_final_grade, name):
     self.assignment_grades = assignment_grades
@@ -17,13 +19,7 @@ class Student:
     return True
   
   def calculate_final_grade(self):
-    average = sum(self.assignment_grades) / len(self.assignment_grades) 
-    if len(filter(lambda g: g >= 6, self.assignment_grades)) == len(self.assignment_grades):
-      return max([6.5, average])
-    elif len(filter(lambda g: g <= 2, self.assignment_grades)) >= 1:
-      return min([3.9, average])
-    else:
-      return average
+    return FinalGradeStrategyFactory().strategy(self.assignment_grades).calculate(self.assignment_grades)
 
   def check_assignment_grades(self):
     def is_close(a, b, rel_tol=1e-09, abs_tol=0.0):
