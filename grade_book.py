@@ -1,5 +1,8 @@
-class GradeBook:
+from publisher import Publisher
+
+class GradeBook(Publisher):
   def __init__(self, students):
+    Publisher.__init__(self)
     self.students = students
   
   def __eq__(self, other):
@@ -12,6 +15,7 @@ class GradeBook:
   
   def check_assignment_grades(self):
     for student in self.students:
+      self.notify('checking student ' + student.name)
       if not student.check_assignment_grades():
         return False
     return True
